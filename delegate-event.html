@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegate Event</title>
+</head>
+<body>
+    <section>
+        <h1>Delegate event</h1>
+        <ul id="outer-item" class="item">
+            <li class="inner-item">1st item</li>
+            <li class="inner-item">2nd item</li>
+            <li class="inner-item">3rd item</li>
+            <li class="inner-item">4th item</li>
+            <li class="inner-item">5th item</li>
+        </ul>
+    </section>
+    <button id="add-item">Add Itam</button>
+
+    <script>
+        const innerItem = document.getElementsByClassName('inner-item');
+        for(const element of innerItem){
+            element.addEventListener('click', function(event){
+                //document.getElementById('outer-item').removeChild(element);
+                event.target.parentNode.removeChild(event.target);
+            })
+        }
+
+        document.getElementById('add-item').addEventListener('click', function(){
+            const li = document.createElement('li');
+            li.innerText = 'Brand New Item';
+            li.classList.add('inner-item');
+            const parent = document.getElementById('outer-item');
+            parent.appendChild(li);
+        })
+
+        document.getElementById('outer-item').addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+    </script>
+</body>
+</html>

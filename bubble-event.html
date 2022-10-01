@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble vai</title>
+</head>
+<body>
+    <h1>Bubble event</h1>
+    <section id="main-section">
+        <h1>event..........</h1>
+        <ul id="item">
+            <li class="1st-inner-item">1st iteml</li>
+            <li id="second-item" class="inner-item">2nd Item</li>
+            <li class="inner-item">3rs Item</li>
+            <li class="inner-item">4th Item</li>
+            <li class="inner-item">5th Item</li>
+        </ul>
+    </section>
+
+    <script>
+        //li
+        document.getElementById('second-item').addEventListener('click', function(event){
+            console.log('clicked li');
+            event.stopPropagation();
+        })
+       
+        
+        //ul
+        document.getElementById('item').addEventListener('click', function(){
+            console.log('clicked ulll')
+        })
+        //section
+        document.getElementById('main-section').addEventListener('click', function(){
+            console.log('clicked main section')
+        })
+    </script>
+</body>
+</html>
